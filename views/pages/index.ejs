@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <% include ../partials/header.ejs %>
+    <meta charset="utf-8" />
+    <title>Content Viewer Demo</title>
+    <% include ../partials/header.ejs %>
+    <!-- Polyfill promise API if using Internet Explorer -->
+    <script src="https://cdn.jsdelivr.net/bluebird/latest/bluebird.min.js"></script>
+    <!-- Latest version of Content Viewer for en-US locale -->
+    <script src="https://cdn01.boxcdn.net/platform/preview/0.101.0/en-US/preview.js"></script>
+    <link rel="stylesheet" href="https://cdn01.boxcdn.net/platform/preview/0.101.0/en-US/preview.css" />
 </head>
-
 <body>
 
   <% include ../partials/nav.ejs %>
-
-<div class="jumbotron text-center">
+  <p>Reva Web Application Demo</p>
+<!-- <div class="jumbotron text-center">
   <div class="container">
     <a href="/" class="lang-logo">
       <img src="/lang-logo.png">
@@ -55,12 +61,14 @@
         <li><a href="https://devcenter.heroku.com/articles/deploying-nodejs">Deploying Node Apps on Heroku</a></li>
       </ul>
     </div>
-  </div> <!-- row -->
+  </div> <!-- row --> -->
+
+  <!--
    <div class="alert alert-info text-center" role="alert">
     Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
   </div>
 </div>
-
+-->
 
 </body>
 </html>
