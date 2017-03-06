@@ -1,6 +1,4 @@
-//import { BoxService } from './boxService.js'
-import { compute } from './services/compute.ts';
-//Box Service Spec
+import { BoxService } from './services/boxService.js';
 
 describe("BoxService", function() {
   var service;
@@ -10,16 +8,9 @@ describe("BoxService", function() {
 
   describe('getAllItemsInRootFolder', function() {
     it('returns an object representing all the files in Box', function() {
-      // An intentionally failing test. No code within expect() will never equal 4.
       let callBack = function(err, data) {
         if(err) throw err;
         expect(data).toNotBe(null)
-        console.log('data is' + Object.keys(data));
-        console.log('IsTotal_Count' + data["istotal_count"]);
-        console.log('Entries' + data["entries"]);
-        console.log('Offset' + data["offset"]);
-        console.log('Limit' + data["limit"]);
-        console.log('Order' + data["order"]);
       }
       service.getAllItemsInRootFolder(callBack)
     });
@@ -46,3 +37,11 @@ describe("BoxService", function() {
     });
   });
 })
+
+
+// console.log('data is' + Object.keys(data));
+// console.log('IsTotal_Count' + data["istotal_count"]);
+// console.log('Entries' + data["entries"]);
+// console.log('Offset' + data["offset"]);
+// console.log('Limit' + data["limit"]);
+// console.log('Order' + data["order"]);

@@ -2,6 +2,26 @@ export class BoxService{
 
   var developerToken = 'IdSqAIHSUCkD7J67hVsVR1FjWtkrODre'
 
+  getAllItemsInRootFolder(callBack){
+    client.folders.getItems( '0', {
+            fields: 'name,modified_at,size,url,permissions,sync_state',
+            offset: 0,
+            limit: 25 }, callBack
+    );
+  }
+
+  getCategory(){
+
+  }
+
+  getSubCategory(){
+
+  }
+
+  searchBoxBackend(){
+
+  }
+
   setUp(){
     var BoxSDK = require('box-node-sdk');
     // Initialize SDK
@@ -20,26 +40,6 @@ export class BoxService{
       if(err) throw err;
       console.log('Hello, ' + currentUser.name + '!');
     });
-  }
-
-  getAllItemsInRootFolder(callBack){
-    client.folders.getItems( '0', {
-            fields: 'name,modified_at,size,url,permissions,sync_state',
-            offset: 0,
-            limit: 25 }, callBack
-    );
-  }
-
-  getCategory(){
-
-  }
-
-  getSubCategory(){
-
-  }
-
-  getSubCategory(){
-
   }
 
 }
