@@ -1,17 +1,18 @@
+import * as BoxSDK from 'box-node-sdk';
+
 export class BoxService{
 
-  setUp(){
-    var BoxSDK = require('box-node-sdk');
+  createBoxClient(){
+
     // Initialize SDK
-    var sdk = new BoxSDK({
+    /*var sdk = new BoxSDK({
       clientID: 'dab95mxwvro2hniqxj5tw693celgmoee',
-      clientSecret: '5243kaAZJzlnlzjKyRkE1ZWbfs22H0L0'
-    });
+      // clientSecret: '5243kaAZJzlnlzjKyRkE1ZWbfs22H0L0'
+    });*/
     // Create a basic API client
     // Creating and Generating a Developer Token, expires every 60 mins
-    let developerToken = 'W1u8a1pYU5aPEugE1hOl6J36t46AwXVz'
-    var client = sdk.getBasicClient(developerToken);
-    // Get some of that sweet, sweet data!
+    //let developerToken = 'W1u8a1pYU5aPEugE1hOl6J36t46AwXVz'
+    //return sdk.getBasicClient(developerToken);
   }
 
   getUserName(){

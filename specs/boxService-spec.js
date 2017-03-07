@@ -1,21 +1,28 @@
 import { BoxService } from '../services/boxService.js';
 
 describe("BoxService", function() {
-  var service;
+  //var service;
 
-  beforeEach(function(){
-    service = new BoxService
+  //beforeEach(function(){
+    //service = new BoxService
+  //});
+
+  describe('createBoxClient', function(){
+    it('returns a basic Box Client to query Box Server')
+    var service = new BoxService()
+    var client = service.createBoxClient();
+    expect(client).toNotBe(null);
   });
 
-  describe('getUserName', function() {
-    it('returns an object representing all the files in Box', function() {
-      let callBack = function(err, data) {
-        if(err) throw err;
-        expect(data).toNotBe(null)
-      }
-      service.getAllItemsInRootFolder(callBack)
-    });
-  });
+  // describe('getUserName', function() {
+  //   it('returns an object representing all the files in Box', function() {
+  //     let callBack = function(err, data) {
+  //       if(err) throw err;
+  //       expect(data).toNotBe(null)
+  //     }
+  //     service.getAllItemsInRootFolder(callBack)
+  //   });
+  // });
 
   // describe('getAllItemsInRootFolder', function() {
   //   it('returns an object representing all the files in Box', function() {

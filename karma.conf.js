@@ -31,12 +31,30 @@ module.exports = function(config) {
     },
 
     webpack: {
-        module: {
-            loaders: [
-                { test: /\.js/, exclude: /node_modules/, loader: 'babel-loader' }
-            ]
-        },
-        watch: true
+
+      module: {
+        rules: [
+          {
+            test: /\.json$/,
+            use: 'json-loader'
+          }
+        ],
+        loaders: [
+          {
+            test: /\.js$/, ///\.json$/,
+            loader: 'babel-loader', //'json-loader',
+          },
+          {
+            test: /\.json$/,
+            loader: 'json-loader',
+          }
+        ]
+      }
+        // module: {
+        //     loaders: [
+        //         { test: /\.js/, exclude: /node_modules/, loader: 'babel-loader' }
+        //     ]
+        // },
     },
 
     // test results reporter to use
