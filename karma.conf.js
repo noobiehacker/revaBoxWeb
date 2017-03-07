@@ -49,6 +49,11 @@ module.exports = function(config) {
             loader: 'json-loader',
           }
         ]
+      },node: {
+        net: 'empty',
+        tls: 'empty',
+        dns: 'empty',
+        fs: 'empty'
       }
         // module: {
         //     loaders: [
