@@ -23,19 +23,23 @@ module.exports = {
     ],
     loaders: [
       {
-        test: /\.js$/, /\.json$/,
-        loader: 'babel-loader', 'json-loader',
-        include: path.join(__dirname, 'src'),
-        query: {
-          presets: ["es2015"],
-        }
+        test: /\.js$/,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       }
     ]
   },
   node: {
     net: 'empty',
     tls: 'empty',
-    dns: 'empty'
+    dns: 'empty',
+    fs: 'empty'
+  },
+  externals: {
+    'crypto': 'crypto'
   },
   debug: true
 };
