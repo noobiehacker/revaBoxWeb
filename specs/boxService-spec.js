@@ -1,4 +1,4 @@
-import { BoxService } from '../services/boxService.js';
+import { BoxService } from '../src/services/boxService.js';
 
 describe("BoxService", function() {
   //var service;

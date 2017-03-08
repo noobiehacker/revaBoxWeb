@@ -18,13 +18,14 @@ module.exports = {
     rules: [
       {
         test: /\.json$/,
-        use: 'json-loader'
+        use: 'json-loader',
       }
     ],
     loaders: [
       {
         test: /\.js$/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        exclude: /node_modules/
       },
       {
         test: /\.json$/,
@@ -35,11 +36,11 @@ module.exports = {
   node: {
     net: 'empty',
     tls: 'empty',
-    dns: 'empty',
+    //dns: 'empty',
     fs: 'empty'
   },
   externals: {
-    'crypto': 'crypto'
+    //'crypto': 'crypto'
   },
   debug: true
 };
