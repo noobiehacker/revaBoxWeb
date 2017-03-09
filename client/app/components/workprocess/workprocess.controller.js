@@ -11,12 +11,22 @@ class WorkprocessController {
     return this.category
   }
 
-  getSubCategory() {
-    //1)Get The selectedCategory as a key
-    //
-    let financeIndex = 2;
-    if this.selectedCategory == this.category[financeIndex]
-    return []
+  getSubCategory(key) {
+
+    let hrIndex = this.category.findIndex((element) => {
+        return element == key
+    });
+    //1)Return empty array if selected cat is undefined or not NR index
+    if ((hrIndex < 0) || (this.selectedCategory == undefined)
+    || (this.selectedCategory != this.category[hrIndex])){
+      return []
+    }else{
+      //2Return the HR subcategory if key is hr index
+      if (this.selectedCategory == this.category[hrIndex]){
+        return this.subcategoryMap.get(this.selectedCategory)
+      }
+    }
+
   }
 
   getDataFromService() {
