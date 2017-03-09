@@ -2,7 +2,7 @@
 
 .hero {
   background-color: $white;
-  height: 60rem;
+  height: 15rem;
   padding: 3rem;
   text-align: center;
   font-size: 20px;
@@ -11,6 +11,13 @@
     color: $lightTextColor;
     font-size: 10px;
   }
+
+  .h4{
+    color: $lightTextColor;
+    font-size: 30px;
+    text-align: center;
+  }
+
 
   // * {
   //   color: $darkTextColor;

@@ -4,8 +4,7 @@ import './workprocess.scss';
 
 let workprocessComponent = {
   restrict: 'E',
-  bindings: {},
-  // cat: '='
+  bindings: {cat: '@'},
   template,
   controller
 };

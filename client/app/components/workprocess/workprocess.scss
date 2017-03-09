@@ -1,3 +1,21 @@
+//@import '../common';
+
+$primaryColor:   #0277bd;
+$accentColor:    #1de9b6;
+$bgColor:        #efefef;
+$darkBgColor:    #263238;
+$lightBgColor:   #37474f;
+$lightTextColor: #f5f5f5;
+$darkTextColor:  #212121;
+$white:          #FFFFFF;
+$purple:         #1F3A93;
+
 .workprocess {
-  color: red;
+  text-align: center;
+  font-size: 15px;
+}
+
+h2{
+    color: $white;
+    font-size: 20px;
 }
