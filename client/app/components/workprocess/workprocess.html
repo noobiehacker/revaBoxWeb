@@ -1,21 +1,20 @@
 <section class="workprocess">
   <div>
-    <h2>{{ $ctrl.name}}</h2>
-    <select>
-      <option value="Engineering">Engineering</option>
-      <option value="Finance">Finance</option>
-      <option value="HR">HR</option>
-      <option value="Finance">Finance</option>
-      <option value="POD">POD</option>
+    <h2>{{$ctrl.topName}}</h2>
+    <select ng-model="category" ng-change="$ctrl.updateSelectedCategory(category)">
+      <option ng-repeat="cat in $ctrl.category"
+              value="{{cat}}">
+              {{cat}}
+      </option>
+    </select>
+  </div>
+  <div>
+    <h2>{{$ctrl.bottomName}}</h2>
+    <select ng-model="category">
+      <option ng-repeat="subCat in $ctrl.getSubCategoryDropDown()"
+              value="subCat.value">
+              {{subCat}}
+      </option>
     </select>
   </div>
 </section>
-
-
-<!-- <select ng-model="filterCondition.operator">
-    <option ng-selected="{{operator.value == filterCondition.operator}}"
-            ng-repeat="operator in operators"
-            value="{{operator.value}}">
-      {{operator.displayName}}
-    </option>
-</select> -->

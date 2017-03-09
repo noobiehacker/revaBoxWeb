@@ -1,14 +1,12 @@
 class WorkprocessController {
   constructor() {
-    this.name = 'workprocess';
     this.tempString = 'A temporary string';
     this.category = [];
-    this.selectedCategory;
     this.subcategoryMap = new Map();
-  }
-
-  getCategory() {
-    return this.category
+    this.topName = "Category";
+    this.bottomName = "Sub-Category";
+    this.selectedCategory;
+    this.getDataFromService();
   }
 
   getSubCategory(key) {
@@ -34,12 +32,12 @@ class WorkprocessController {
     this.subcategoryMap.set("HR",hrSubcategory)
   }
 
-  getDisplayDropDown() {
-    if(this.name == 'Category'){
-      return this.category
-    }else if(this.name == 'Sub-Category'){
-      return this.getSubCategory(this.selectedCategory)
-    }
+  getSubCategoryDropDown() {
+    return this.getSubCategory(this.selectedCategory)
+  }
+
+  updateSelectedCategory(input){
+    this.selectedCategory = input
   }
 
 }
