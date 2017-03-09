@@ -27,12 +27,48 @@ describe('Workprocess', () => {
 
     it('has a category property', () => {
       let controller = makeController();
-      expect(controller).to.have.property('category')
+      expect(controller).to.have.property('category');
     });
 
     it('has a subcategory property', () => {
       let controller = makeController();
-      expect(controller).to.have.property('subcategory')
+      expect(controller).to.have.property('subcategoryMap');
+    });
+
+    it('has a subcategoryMap property', () => {
+      let controller = makeController();
+      expect(controller).to.have.property('subcategoryMap');
+    });
+
+    it('has a getCategory method that returns the category array', () => {
+      let controller = makeController();
+      let expected = ["itemOne", "itemTwo", "itemThree"];
+      controller.category = expected;
+      expect(controller.getCategory()).to.be.eql(expected);
+    });
+
+    it('has a getDataFromService method that populates properties', () => {
+      let controller = makeController();
+      let catExpectation = ["Engineering","Finance","HR"];
+      let hrSubCatExpectation = ["Finance","POD"];
+      controller.getDataFromService();
+      expect(controller.category).to.be.eql(catExpectation);
+      expect(controller.subcategoryMap.get("HR")).to.be.eql(hrSubCatExpectation);
+    });
+
+    it('has a getSubCategory method that returns an empty array if selectedCategory is not defined', () => {
+      let controller = makeController();
+      expect(controller.selectedCategory).to.not.exist;
+      expect(controller.getSubCategory()).to.be.eql([]);
+    });
+
+    it('has a getSubCategory method that returns the \'hrSubcategory\' if selectedCategory is \'HR\'', () => {
+      let controller = makeController();
+      let financeIndex = 2
+      controller.getDataFromService();
+      controller.selectedCategory = controller.category[financeIndex]
+      let expected = ["Finance","POD"]
+      expect(controller.getSubCategory()).to.be.eql(expected)
     });
 
   });

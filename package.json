@@ -1,5 +1,5 @@
 {
-  "name": "Reva Box Metadata Interface",
+  "name": "reva_box_metadata_interface",
   "version": "0.0.1",
   "description": "Web Box Angular Interface",
   "main": "index.js",
