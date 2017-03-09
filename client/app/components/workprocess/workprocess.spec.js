@@ -20,10 +20,21 @@ describe('Workprocess', () => {
 
   describe('Controller', () => {
     // controller specs
-    it('has a name property [REMOVE]', () => { // erase if removing this.name from the controller
+    it('has a name property', () => { // erase if removing this.name from the controller
       let controller = makeController();
       expect(controller).to.have.property('name');
     });
+
+    it('has a category property', () => {
+      let controller = makeController();
+      expect(controller).to.have.property('category')
+    });
+
+    it('has a subcategory property', () => {
+      let controller = makeController();
+      expect(controller).to.have.property('subcategory')
+    });
+
   });
 
   describe('Template', () => {

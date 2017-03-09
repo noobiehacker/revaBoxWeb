@@ -1,11 +1,12 @@
 {
-  "name": "ng6-starter",
+  "name": "Reva Box Metadata Interface",
   "version": "0.0.1",
-  "description": "Starter for Angular + ES6 + (Webpack or JSPM)",
+  "description": "Web Box Angular Interface",
   "main": "index.js",
   "dependencies": {
     "angular": "^1.5.0",
     "angular-ui-router": "^1.0.0-beta.1",
+    "box-node-sdk": "^1.3.0",
     "normalize.css": "^3.0.3"
   },
   "devDependencies": {
@@ -67,9 +68,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/angularclass/NG6-starter.git"
+    "url": "https://github.com/noobiehacker/revaBoxWeb"
   },
-  "author": "AngularClass",
+  "author": "Revasolution",
   "license": "Apache-2.0",
   "babel": {
     "plugins": [
