@@ -65,25 +65,42 @@ describe('Workprocess', () => {
     describe('getSubcategory', () => {
       it('returns \'hrSubcategory\' if selectedCategory is \'HR\'', () => {
         let controller = makeController();
-        let expected = ["Finance","POD"]
         let key = "HR";
         controller.getDataFromService();
         let hrIndex = controller.category.findIndex((element) => {
-            return element == key
+            return element == key;
         });
-        controller.selectedCategory = controller.category[hrIndex]
-        expect(controller.getSubCategory(key)).to.be.eql(expected)
+        controller.selectedCategory = controller.category[hrIndex];
+        expect(controller.getSubCategory(key)).to.be.eql(["Finance","POD"]);
       });
-      it('returns [] when selectedCategory is not HR', () =>{
+      it('returns [] when selectedCategory is not \"HR\"', () =>{
         let controller = makeController();
         let key = "Finance";
         let hrIndex = controller.category.findIndex((element) => {
-            return element == key
+            return element == key;
         });
         controller.getDataFromService();
-        controller.selectedCategory = controller.category[hrIndex]
-        expect(controller.getSubCategory(key)).to.be.eql([])
+        controller.selectedCategory = controller.category[hrIndex];
+        expect(controller.getSubCategory(key)).to.be.eql([]);
       });
+    });
+
+    describe('getDisplayDropDown', () => {
+      it('returns category array if name is \"category\"', () =>{
+        let controller = makeController();
+        controller.name = 'Category'
+        controller.getDataFromService();
+        let expected = controller.category;
+        expect(controller.getDisplayDropDown()).to.be.eql(expected);
+      });
+      it('returns result of subcategory fn if name is \"subcategory\"', () =>{
+        let controller = makeController();
+        controller.name = 'Sub-Category'
+        controller.getDataFromService();
+        controller.selectedCategory = "HR"
+        let expected = controller.getSubCategory(controller.selectedCategory);
+        expect(controller.getDisplayDropDown()).to.be.eql(expected)
+      })
     });
 
   });

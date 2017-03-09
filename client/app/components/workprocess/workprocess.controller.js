@@ -12,7 +12,6 @@ class WorkprocessController {
   }
 
   getSubCategory(key) {
-
     let hrIndex = this.category.findIndex((element) => {
         return element == key
     });
@@ -26,7 +25,6 @@ class WorkprocessController {
         return this.subcategoryMap.get(this.selectedCategory)
       }
     }
-
   }
 
   getDataFromService() {
@@ -35,6 +33,15 @@ class WorkprocessController {
     this.category = category
     this.subcategoryMap.set("HR",hrSubcategory)
   }
+
+  getDisplayDropDown() {
+    if(this.name == 'Category'){
+      return this.category
+    }else if(this.name == 'Sub-Category'){
+      return this.getSubCategory(this.selectedCategory)
+    }
+  }
+
 }
 
 export default WorkprocessController;
