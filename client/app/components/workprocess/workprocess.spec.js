@@ -20,9 +20,14 @@ describe('Workprocess', () => {
 
   describe('Controller', () => {
     // controller specs
-    it('has a name property', () => { // erase if removing this.name from the controller
+    it('has a topName property', () => {
       let controller = makeController();
-      expect(controller).to.have.property('name');
+      expect(controller).to.have.property('topName');
+    });
+
+    it('has a bottomName property', () => {
+      let controller = makeController();
+      expect(controller).to.have.property('bottomName');
     });
 
     it('has a category property', () => {
@@ -30,21 +35,9 @@ describe('Workprocess', () => {
       expect(controller).to.have.property('category');
     });
 
-    it('has a subcategory property', () => {
-      let controller = makeController();
-      expect(controller).to.have.property('subcategoryMap');
-    });
-
     it('has a subcategoryMap property', () => {
       let controller = makeController();
       expect(controller).to.have.property('subcategoryMap');
-    });
-
-    it('has a getCategory method that returns the category array', () => {
-      let controller = makeController();
-      let expected = ["itemOne", "itemTwo", "itemThree"];
-      controller.category = expected;
-      expect(controller.getCategory()).to.be.eql(expected);
     });
 
     it('has a getDataFromService method that populates properties', () => {
@@ -76,30 +69,24 @@ describe('Workprocess', () => {
       it('returns [] when selectedCategory is not \"HR\"', () =>{
         let controller = makeController();
         let key = "Finance";
+        controller.getDataFromService();
         let hrIndex = controller.category.findIndex((element) => {
             return element == key;
         });
-        controller.getDataFromService();
         controller.selectedCategory = controller.category[hrIndex];
+        console.log(controller.getSubCategory(key))
+        console.log([])
         expect(controller.getSubCategory(key)).to.be.eql([]);
       });
     });
 
-    describe('getDisplayDropDown', () => {
-      it('returns category array if name is \"category\"', () =>{
+    describe('getSubCategoryDropDown returns the subcategory array from map', () => {
+      it('returns Finance, POD when selected Category is \'HR\'', () =>{
         let controller = makeController();
-        controller.name = 'Category'
-        controller.getDataFromService();
-        let expected = controller.category;
-        expect(controller.getDisplayDropDown()).to.be.eql(expected);
-      });
-      it('returns result of subcategory fn if name is \"subcategory\"', () =>{
-        let controller = makeController();
-        controller.name = 'Sub-Category'
         controller.getDataFromService();
         controller.selectedCategory = "HR"
         let expected = controller.getSubCategory(controller.selectedCategory);
-        expect(controller.getDisplayDropDown()).to.be.eql(expected)
+        expect(controller.getSubCategoryDropDown()).to.be.eql(expected)
       })
     });
 
@@ -109,7 +96,8 @@ describe('Workprocess', () => {
     // template specs
     // tip: use regex to ensure correct bindings are used e.g., {{  }}
     it('has name in template [REMOVE]', () => {
-      expect(WorkprocessTemplate).to.match(/{{\s?\$ctrl\.name\s?}}/g);
+      expect(WorkprocessTemplate).to.match(/{{\s?\$ctrl\.topName\s?}}/g);
+      expect(WorkprocessTemplate).to.match(/{{\s?\$ctrl\.bottomName\s?}}/g);
     });
   });
 

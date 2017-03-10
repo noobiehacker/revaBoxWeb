@@ -14,17 +14,18 @@ class WorkprocessController {
         return element == key
     });
     //1)Return empty array if selected cat is undefined or not NR index
-    if ((hrIndex < 0) || (this.selectedCategory == undefined)
-    || (this.selectedCategory != this.category[hrIndex])){
+    let noSubCategoryData = ((hrIndex < 0) || (this.selectedCategory == undefined)
+    || (this.selectedCategory != this.category[hrIndex])
+    || (!this.subcategoryMap.has(this.selectedCategory)))
+
+    if (noSubCategoryData){
       return []
-    }else{
+    }else if (this.selectedCategory == this.category[hrIndex]){
       //2Return the HR subcategory if key is hr index
-      if (this.selectedCategory == this.category[hrIndex]){
-        return this.subcategoryMap.get(this.selectedCategory)
-      }
+      return this.subcategoryMap.get(this.selectedCategory)
     }
   }
-
+  
   getDataFromService() {
     let category = ["Engineering","Finance","HR"]
     let hrSubcategory = ["Finance","POD"]
