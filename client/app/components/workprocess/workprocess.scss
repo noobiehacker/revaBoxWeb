@@ -11,11 +11,21 @@ $white:          #FFFFFF;
 $purple:         #1F3A93;
 
 .workprocess {
-  text-align: center;
   font-size: 15px;
+  padding-bottom: 20px;
 }
 
 h2{
-    color: $white;
-    font-size: 20px;
+  color: $primaryColor;
+  font-size: 25px;
+  vertical-align: text-top;
+}
+
+select{
+  vertical-align: text-top;
+}
+
+.center {
+   padding-top: 20px;
+   text-align: center;
 }
