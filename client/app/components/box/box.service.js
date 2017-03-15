@@ -3,17 +3,12 @@
 let BoxService = function () {
   const user = {};
 
-  let createBoxClient = () => {
-    return user;
-    // Initialize SDK
-    /*var sdk = new BoxSDK({
-      clientID: 'dab95mxwvro2hniqxj5tw693celgmoee',
-      // clientSecret: '5243kaAZJzlnlzjKyRkE1ZWbfs22H0L0'
-    });*/
-    // Create a basic API client
-    // Creating and Generating a Developer Token, expires every 60 mins
-    //let developerToken = 'W1u8a1pYU5aPEugE1hOl6J36t46AwXVz'
-    //return sdk.getBasicClient(developerToken);
+  let getCategory = () => {
+      return user;
+  };
+
+  let getSubCategory = () => {
+      return user;
   };
 
   let getUserName = () => {
@@ -33,15 +28,7 @@ let BoxService = function () {
     // );
   };
 
-  let getCategory = () => {
-    return user;
-  };
-
-  let getSubCategory = () => {
-    return user;
-  };
-
-  return { createBoxClient, getUserName, getAllItemsInRootFolder, getCategory,
+  return { getUserName, getAllItemsInRootFolder, getCategory,
     getSubCategory
   };
 };

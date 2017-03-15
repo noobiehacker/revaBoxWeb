@@ -12,13 +12,7 @@ describe('BoxModule', () => {
     beforeEach(() => {
       service = BoxService();
     });
-
-    describe('#createBoxClient', () => {
-      it('should creates a Box Client', () =>{
-        expect(service.createBoxClient()).to.exist;
-      });
-    });
-
+    
     describe('#getUserName', () => {
       it('should return the correct user name', () =>{
         expect(service.getUserName()).to.exist;

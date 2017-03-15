@@ -25,12 +25,12 @@ class WorkprocessController {
       return this.subcategoryMap.get(this.selectedCategory)
     }
   }
-  
+
   getDataFromService() {
     let category = ["Engineering","Finance","HR"]
-    let hrSubcategory = ["Finance","POD"]
+    let hrSubcategory = ["Invoice","POD"]
     this.category = category
-    this.subcategoryMap.set("HR",hrSubcategory)
+    this.subcategoryMap.set("Finance",hrSubcategory)
   }
 
   getSubCategoryDropDown() {

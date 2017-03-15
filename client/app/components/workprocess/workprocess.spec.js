@@ -43,10 +43,10 @@ describe('Workprocess', () => {
     it('has a getDataFromService method that populates properties', () => {
       let controller = makeController();
       let catExpectation = ["Engineering","Finance","HR"];
-      let hrSubCatExpectation = ["Finance","POD"];
+      let financeSubCatExpectation = ["Invoice","POD"];
       controller.getDataFromService();
       expect(controller.category).to.be.eql(catExpectation);
-      expect(controller.subcategoryMap.get("HR")).to.be.eql(hrSubCatExpectation);
+      expect(controller.subcategoryMap.get("Finance")).to.be.eql(financeSubCatExpectation);
     });
 
     it('has a getSubCategory method that returns an empty array if selectedCategory is not defined', () => {
@@ -58,17 +58,17 @@ describe('Workprocess', () => {
     describe('getSubcategory', () => {
       it('returns \'hrSubcategory\' if selectedCategory is \'HR\'', () => {
         let controller = makeController();
-        let key = "HR";
+        let key = "Finance";
         controller.getDataFromService();
         let hrIndex = controller.category.findIndex((element) => {
             return element == key;
         });
         controller.selectedCategory = controller.category[hrIndex];
-        expect(controller.getSubCategory(key)).to.be.eql(["Finance","POD"]);
+        expect(controller.getSubCategory(key)).to.be.eql(["Invoice","POD"]);
       });
-      it('returns [] when selectedCategory is not \"HR\"', () =>{
+      it('returns [] when selectedCategory is not \"Finance\"', () =>{
         let controller = makeController();
-        let key = "Finance";
+        let key = "Hr";
         controller.getDataFromService();
         let hrIndex = controller.category.findIndex((element) => {
             return element == key;
