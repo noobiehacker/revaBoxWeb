@@ -1,11 +1,16 @@
+import http from 'http';
+
 class WorkprocessController {
+
   constructor() {
+    this.serverUrl = "http://localhost:5000"
     this.tempString = 'A temporary string';
     this.category = [];
     this.subcategoryMap = new Map();
     this.topName = "Category";
     this.bottomName = "Sub-Category";
     this.selectedCategory;
+    this.http = http;
     this.getDataFromService();
   }
 
@@ -31,6 +36,24 @@ class WorkprocessController {
     let hrSubcategory = ["Invoice","POD"]
     this.category = category
     this.subcategoryMap.set("Finance",hrSubcategory)
+    this.getCategoryFromServer()
+  }
+
+  getCategoryFromServer() {
+    let queryUrl = this.serverUrl + "/category";
+
+    let cb = function(response) {
+        result = response.data;
+        console.log(response)
+        $log.info(response)
+      };
+
+    let result = this.http.get(queryUrl, cb);
+
+  }
+
+  getSubCategoryFromServer(category){
+
   }
 
   getSubCategoryDropDown() {

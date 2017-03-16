@@ -1,5 +1,3 @@
-//import BoxSDK from 'box-node-sdk';
-
 let BoxService = function () {
   const user = {};
 
