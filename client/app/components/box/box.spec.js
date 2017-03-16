@@ -1,41 +1,36 @@
 import boxModule from './box'
 import BoxService from './box.service'
 
-describe('BoxModule', () => {
+describe('Box', () => {
 
-  let $rootScope, $bs, $compile;
   beforeEach(window.module(boxModule));
 
-  describe('BoxService', () => {
+  describe('Service', function(){
 
-    var service;
-    beforeEach(() => {
-      service = BoxService();
-    });
-    
-    describe('#getUserName', () => {
-      it('should return the correct user name', () =>{
-        expect(service.getUserName()).to.exist;
-      });
-    });
-
-    describe('#getAllItemsInRootFolder', () => {
-      it('should return all the items in the root folder', () =>{
-        expect(service.getAllItemsInRootFolder()).to.exist;
-      });
-    });
+    this.timeout(10000);
 
     describe('#getCategory', () => {
-      it('should return the categories for this box app', () =>{
-        expect(service.getCategory()).to.exist;
+
+      let service = new BoxService();
+
+      it('should return the categories for this box app', function(done) {
+
+        service.getCategory((response) => {
+          console.log("hello" + response)
+          expect(response).to.exist;
+          done();
+        });
+
       });
+
     });
 
-    describe('#getSubCategory', () => {
-      it('should return the subcategory for this box app', () =>{
-        expect(service.getSubCategory()).to.exist;
-      });
-    });
+    // describe('#getSubCategory', () => {
+    //   it('should return the subcategory for this box app', () =>{
+    //     let service = makeService();
+    //     expect(service.getSubCategory()).to.exist;
+    //   });
+    // });
 
   });
 

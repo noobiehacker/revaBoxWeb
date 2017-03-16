@@ -28,7 +28,6 @@ var glob = require('glob').sync,
 var Mocha = require('mocha');
 
 var mocha = new Mocha();
-
 mocha.reporter('spec').ui('bdd');
 
 

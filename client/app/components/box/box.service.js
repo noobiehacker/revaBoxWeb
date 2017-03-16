@@ -1,34 +1,37 @@
-let BoxService = function () {
-  const user = {};
+import http from 'http';
 
-  let getCategory = () => {
-      return user;
-  };
+class BoxService {
+  constructor() {
+    this.serverUrl = "http://localhost:5000/group"
+    this.http = http;
+  }
 
-  let getSubCategory = () => {
-      return user;
-  };
+  getCategory(cb) {
+    let queryUrl = this.serverUrl + "/category";
+    this.http.get(queryUrl, cb);
+  }
 
-  let getUserName = () => {
-    return user;
-    // client.users.get(client.CURRENT_USER_ID, null, function(err, currentUser) {
-    //   if(err) throw err;
-    //     console.log('Hello, ' + currentUser.name + '!');
-    //   });
-  };
+  createCategoryCallBack(){
+    return function(response) {
+        result = response.data;
+        console.log(response)
+        $log.info(response)
+    };
+  }
 
-  let getAllItemsInRootFolder = (callBack) => {
-    return user;
-    // client.folders.getItems( '0', {
-    //         fields: 'name,modified_at,size,url,permissions,sync_state',
-    //         offset: 0,
-    //         limit: 25 }, callBack
-    // );
-  };
+  getSubCategory(cb) {
+    let queryUrl = this.serverUrl + "/subCategory";
+    this.http.get(queryUrl, cb);
+  }
 
-  return { getUserName, getAllItemsInRootFolder, getCategory,
-    getSubCategory
-  };
-};
+  createSubCategoryCallBack(){
+    return function(response) {
+        result = response.data;
+        console.log(response)
+        $log.info(response)
+    };
+  }
+
+}
 
 export default BoxService;
