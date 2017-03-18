@@ -1,6 +1,4 @@
-//import BoxSDK from 'box-node-sdk';
-
-let BoxService = function () {
+let BoxFactory = function () {
   const user = {};
 
   let getCategory = () => {
@@ -33,4 +31,4 @@ let BoxService = function () {
   };
 };
 
-export default BoxService;
+export default BoxFactory;

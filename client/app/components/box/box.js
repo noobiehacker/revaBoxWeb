@@ -1,7 +1,8 @@
 import angular from 'angular';
-import BoxService from './box.service';
+import BoxFactory from './box.factory';
 
 let boxModule = angular.module('box', [])
-.service('Box', BoxService)
+
+.factory('Box', BoxFactory)
 
 export default boxModule;

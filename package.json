@@ -57,7 +57,7 @@
     "source-map-loader": "^0.2.0",
     "supertest": "^3.0.0",
     "ts-loader": "^2.0.2",
-    "typescript": "^2.2.1",
+    "typescript": "^2.2.1"
   },
   "scripts": {
     "build": "gulp webpack",

@@ -4,11 +4,12 @@ import WorkprocessComponent from './workprocess.component';
 import WorkprocessTemplate from './workprocess.html';
 
 describe('Workprocess', () => {
-  let $rootScope, makeController;
+  let $rootScope, $workProcessService, makeController;
 
   beforeEach(window.module(WorkprocessModule));
-  beforeEach(inject((_$rootScope_) => {
+  beforeEach(inject((_$rootScope_, _$workProcessFactory_) => {
     $rootScope = _$rootScope_;
+    $workProcessService = _$workProcessFactory_;
     makeController = () => {
       return new WorkprocessController();
     };
