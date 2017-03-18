@@ -6,7 +6,16 @@ module.exports = {
   devtool: 'source-map',
   entry: {},
   module: {
-    loaders: [
+    rules: [
+     {
+       test: /\.tsx?$/,
+       loader: 'ts-loader',
+       exclude: /node_modules/,
+     },
+   ], resolve: {
+     extensions: [".tsx", ".ts", ".js"]
+   },
+   loaders: [
        { test: /\.js$/, exclude: [/app\/lib/, /node_modules/
        ], loader: 'ng-annotate!babel' },
        { test: /\.html$/, loader: 'raw' },
