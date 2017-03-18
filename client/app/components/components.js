@@ -5,7 +5,8 @@ import Workprocess from './workprocess/workprocess'
 
 let componentModule = angular.module('app.components', [
   Home,
-  Workprocess
+  Workprocess,
+  Box
   //,
   //About
 ])

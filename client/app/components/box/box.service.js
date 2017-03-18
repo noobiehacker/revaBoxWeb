@@ -1,37 +1,25 @@
-import http from 'http';
-
-class BoxService {
-  constructor() {
-    this.serverUrl = "http://localhost:5000/group"
-    this.http = http;
-  }
-
-  getCategory(cb) {
-    let queryUrl = this.serverUrl + "/category";
-    this.http.get(queryUrl, cb);
-  }
-
-  createCategoryCallBack(){
-    return function(response) {
-        result = response.data;
-        console.log(response)
-        $log.info(response)
-    };
-  }
-
-  getSubCategory(cb) {
-    let queryUrl = this.serverUrl + "/subCategory";
-    this.http.get(queryUrl, cb);
-  }
-
-  createSubCategoryCallBack(){
-    return function(response) {
-        result = response.data;
-        console.log(response)
-        $log.info(response)
-    };
-  }
-
-}
-
-export default BoxService;
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const core_1 = require("@angular/core");
+require("rxjs/add/operator/catch");
+require("rxjs/add/operator/map");
+let BoxService = class BoxService {
+    constructor() { }
+    getCategory() {
+    }
+};
+BoxService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [])
+], BoxService);
+exports.BoxService = BoxService;
+//# sourceMappingURL=box.service.js.map

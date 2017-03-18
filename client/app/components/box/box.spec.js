@@ -3,34 +3,39 @@ import BoxService from './box.service'
 
 describe('Box', () => {
 
+  let $httpBackend, $http, $rootScope, makeService;
+
   beforeEach(window.module(boxModule));
+  beforeEach(inject(($injector) => {
+      $httpBackend = $injector.get('$httpBackend');
+      $http = $injector.get('$http');
+    }));
+  beforeEach(inject((_$rootScope_) => {
+      $rootScope = _$rootScope_;
+      makeService = () => {
+        return new BoxService();
+      };
+      console.log(makeService())
+    }));
 
   describe('Service', function(){
 
-    this.timeout(10000);
+    //this.timeout(10000);
 
     describe('#getCategory', () => {
 
-      let service = new BoxService();
-
       it('should return the categories for this box app', function(done) {
 
-        service.getCategory((response) => {
-          console.log("hello" + response)
-          expect(response).to.exist;
-          done();
-        });
 
+        //let url = service.getServerUrl() + "/category"
+        //$httpBackend.expectGET(url).respond(200,'RESULT');
+        //let observable = service.getCategory();
+        //$httpBackend.flush();
+        //expect(observable).to.exist;
+        done()
       });
 
     });
-
-    // describe('#getSubCategory', () => {
-    //   it('should return the subcategory for this box app', () =>{
-    //     let service = makeService();
-    //     expect(service.getSubCategory()).to.exist;
-    //   });
-    // });
 
   });
 
