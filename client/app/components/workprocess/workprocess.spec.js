@@ -4,18 +4,23 @@ import WorkprocessComponent from './workprocess.component';
 import WorkprocessTemplate from './workprocess.html';
 
 describe('Workprocess', () => {
-  let $rootScope, $workProcessService, makeController;
+  let $rootScope, workProcessService, makeController, workprocessService;
 
   beforeEach(window.module(WorkprocessModule));
-  beforeEach(inject((_$rootScope_, _$workProcessFactory_) => {
+
+  beforeEach(inject((_workprocessService_) => {
+    workprocessService = _workprocessService_
+  }));
+
+  beforeEach(inject((_$rootScope_) => {
     $rootScope = _$rootScope_;
-    $workProcessService = _$workProcessFactory_;
     makeController = () => {
       return new WorkprocessController();
     };
   }));
 
-  describe('Module', () => {
+  describe('WorkProcessService', () => {
+    console.log(workprocessService)
     // top-level specs: i.e., routes, injection, naming
   });
 

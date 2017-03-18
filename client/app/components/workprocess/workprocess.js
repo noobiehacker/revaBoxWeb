@@ -1,14 +1,14 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import workprocessComponent from './workprocess.component';
-import WorkProcessFactory from './workprocess.factory'
+import WorkProcessService from './workprocess.factory'
 
 let workprocessModule = angular.module('workprocess', [
   uiRouter
 ])
 
 .component('workprocess', workprocessComponent)
-.factory('workprocessService', WorkProcessFactory)
+.service('workprocessService', WorkProcessService)
 .name;
 
 export default workprocessModule;

@@ -1,6 +1,6 @@
 import template from './workprocess.html';
 import controller from './workprocess.controller';
-import WorkProcessFactory from './workprocess.factory'
+import WorkProcessService from './workprocess.factory'
 import './workprocess.scss';
 
 let workprocessComponent = {
@@ -8,7 +8,6 @@ let workprocessComponent = {
   bindings: {name: '@'},
   template,
   controller,
-  providers: [WorkProcessFactory]
 };
 
 export default workprocessComponent;
