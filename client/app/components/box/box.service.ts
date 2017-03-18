@@ -7,13 +7,13 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class BoxService{
 
-  //private _serverUrl : string = 'http://localhost:5000';
+  private _serverUrl : string = 'http://localhost:5000';
 
-  constructor() {}
+  constructor(private _http: Http) {}
 
   public getCategory(){
-//    let queryUrl = this._serverUrl + "/category";
-    //return Http.get(queryUrl).map((response) => response.json);
+    let queryUrl = this._serverUrl + "/category";
+    return this._http.get(queryUrl).map((response) => response.json);
   }
 
 }

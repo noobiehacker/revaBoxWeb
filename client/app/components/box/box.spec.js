@@ -1,9 +1,8 @@
 import boxModule from './box'
-import BoxService from './box.service'
 
 describe('Box', () => {
 
-  let $httpBackend, $http, $rootScope, makeService;
+  let $httpBackend, $http, $rootScope,$service;
 
   beforeEach(window.module(boxModule));
   beforeEach(inject(($injector) => {
@@ -12,10 +11,10 @@ describe('Box', () => {
     }));
   beforeEach(inject((_$rootScope_) => {
       $rootScope = _$rootScope_;
-      makeService = () => {
-        return new BoxService();
-      };
-      console.log(makeService())
+      let component = boxModule.component('box');
+      //let service = boxModule.get('BoxService')
+//      console.log(boxModule.service)
+      //let observable = service.getCategory();
     }));
 
   describe('Service', function(){

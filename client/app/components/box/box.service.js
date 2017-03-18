@@ -10,16 +10,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
+const http_1 = require("@angular/http");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/map");
 let BoxService = class BoxService {
-    constructor() { }
+    constructor(_http) {
+        this._http = _http;
+        this._serverUrl = 'http://localhost:5000';
+    }
     getCategory() {
+        let queryUrl = this._serverUrl + "/category";
+        return this._http.get(queryUrl).map((response) => response.json);
     }
 };
 BoxService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [http_1.Http])
 ], BoxService);
 exports.BoxService = BoxService;
 //# sourceMappingURL=box.service.js.map

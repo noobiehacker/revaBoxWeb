@@ -1,7 +1,8 @@
 import angular from 'angular';
-import BoxService from './box.service';
+import boxComponent from './box.component';
+import BoxService from'./box.service';
 
 let boxModule = angular.module('box', [])
-.service('Box', BoxService)
+.component('box', boxComponent)
 
 export default boxModule;
