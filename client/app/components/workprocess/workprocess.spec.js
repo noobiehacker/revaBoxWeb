@@ -10,6 +10,7 @@ describe('Workprocess', () => {
 
   beforeEach(inject((_workprocessService_) => {
     workprocessService = _workprocessService_
+    console.log(workprocessService)
   }));
 
   beforeEach(inject((_$rootScope_) => {
@@ -20,7 +21,6 @@ describe('Workprocess', () => {
   }));
 
   describe('WorkProcessService', () => {
-    console.log(workprocessService)
     // top-level specs: i.e., routes, injection, naming
   });
 

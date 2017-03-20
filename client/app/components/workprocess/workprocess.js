@@ -1,10 +1,11 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import workprocessComponent from './workprocess.component';
-import WorkProcessService from './workprocess.service'
+import WorkProcessService from './workprocess.service';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 let workprocessModule = angular.module('workprocess', [
-  uiRouter
+  uiRouter, HttpModule, JsonpModule
 ])
 
 .component('workprocess', workprocessComponent)
