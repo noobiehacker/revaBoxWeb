@@ -7,14 +7,12 @@ export class WorkprocessService {
 
   constructor(private http: Http) {}
 
-  public getAPIData() {
-    return this.http.get('http://localhost:5000');
+  public getGroups() {
+    return this.http.get('http://localhost:5000/group');
   }
 
-  public getData() {
-    return this.getAPIData()
-      .toPromise()
-      .then((response) => response.json());
+  public getSubGroups() {
+    return this.http.get('http://localhost:5000/subGroup');
   }
 
 }

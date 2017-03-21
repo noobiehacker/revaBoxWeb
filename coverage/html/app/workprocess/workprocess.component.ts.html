@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">42.86% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>9/21</span>
+        <span class='fraction'>21/21</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">14.29% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/7</span>
+        <span class='fraction'>7/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">41.18% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>7/17</span>
+        <span class='fraction'>17/17</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -140,35 +140,35 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -206,35 +206,35 @@ export class WorkprocessComponent implements OnInit {
 &nbsp;
   public localState: any;
   constructor(
-    public <span class="cstat-no" title="statement not covered" >route: ActivatedRoute,</span>
-    public <span class="cstat-no" title="statement not covered" >workprocessService: WorkprocessService<span class="fstat-no" title="function not covered" ></span></span>
+    public route: ActivatedRoute,
+    public workprocessService: WorkprocessService
   ) {}
 &nbsp;
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  public ngOnInit() {</span></span>
-<span class="cstat-no" title="statement not covered" >    this.route</span>
+  public ngOnInit() {
+    this.route
       .data
-      .subscribe((data: any<span class="fstat-no" title="function not covered" >) =&gt; {</span>
+      .subscribe((data: any) =&gt; {
         // your resolved data from route
-<span class="cstat-no" title="statement not covered" >        this.localState = data.yourData;</span>
+        this.localState = data.yourData;
       });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    console.log('hello `Workprocess` component');</span>
+    console.log('hello `Workprocess` component');
     // static data that is bundled
     // var mockData = require('assets/mock-data/mock-data.json');
     // console.log('mockData', mockData);
     // if you're working with mock data you can also use http.get('assets/mock-data/mock-data.json')
-<span class="cstat-no" title="statement not covered" >    this.asyncDataWithWebpack();</span>
+    this.asyncDataWithWebpack();
   }
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  private asyncDataWithWebpack() {</span></span>
+  private asyncDataWithWebpack() {
     // you can also async load mock data with 'es6-promise-loader'
     // you would do this if you don't want the mock-data bundled
     // remember that 'es6-promise-loader' is a promise
-<span class="cstat-no" title="statement not covered" >    setTimeout(<span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
+    setTimeout(() =&gt; {
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      System.import('../../assets/mock-data/mock-data.json')</span>
-        .then((json<span class="fstat-no" title="function not covered" >) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >          console.log('async mockData', json);</span>
-<span class="cstat-no" title="statement not covered" >          this.localState = json;</span>
+      System.import('../../assets/mock-data/mock-data.json')
+        .then((json) =&gt; {
+          console.log('async mockData', json);
+          this.localState = json;
         });
 &nbsp;
     });
@@ -247,7 +247,7 @@ export class WorkprocessComponent implements OnInit {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Mar 20 2017 23:13:43 GMT-0700 (PDT)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Mar 21 2017 12:51:10 GMT-0700 (PDT)
 </div>
 </div>
 <script src="../../prettify.js"></script>
