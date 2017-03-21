@@ -3,9 +3,12 @@ import {
   OnInit
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {
+  WorkprocessService
+} from './workprocess.service';
 
 @Component({
-  selector: 'about',
+  selector: 'workprocess',
   styles: [`
   `],
   template: `
@@ -26,7 +29,8 @@ export class WorkprocessComponent implements OnInit {
 
   public localState: any;
   constructor(
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    public workprocessService: WorkprocessService
   ) {}
 
   public ngOnInit() {

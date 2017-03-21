@@ -14,7 +14,9 @@ import {
   RouterModule,
   PreloadAllModules
 } from '@angular/router';
-
+import {
+  WorkprocessService
+} from './workprocess/workprocess.service';
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -64,7 +66,8 @@ type StoreType = {
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    WorkprocessService
   ]
 })
 export class AppModule {
