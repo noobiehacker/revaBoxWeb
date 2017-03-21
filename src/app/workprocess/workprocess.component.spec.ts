@@ -75,6 +75,44 @@ describe('Workprocess', () => {
         expect(console.log).toHaveBeenCalled();
     }));
 
+    it('should have a topName property', inject([WorkprocessComponent],
+      (workprocess: WorkprocessComponent) => {
+        expect(workprocess.topName).toBeDefined();
+    }));
+
+    it('should have a bottomName property', inject([WorkprocessComponent],
+      (workprocess: WorkprocessComponent) => {
+        expect(workprocess.bottomName).toBeDefined();
+    }));
+
+    it('should have a selectedGroup property', inject([WorkprocessComponent],
+      (workprocess: WorkprocessComponent) => {
+        expect(workprocess.selectedGroup).toBeDefined();
+    }));
+
+    it('should update the selectedGroup', inject([WorkprocessComponent],
+      (workprocess: WorkprocessComponent) => {
+        let expected: String = 'Updated Value';
+        workprocess.updateSelectedGroup(expected);
+        let result = workprocess.selectedGroup;
+        expect(result).toEqual(expected);
+    }));
+
+    it('should have a groups property', inject([WorkprocessComponent],
+      (workprocess: WorkprocessComponent) => {
+        expect(workprocess.groups).toBeDefined();
+    }));
+
+    it('should have a getSubGroups property', inject([WorkprocessComponent],
+      (workprocess: WorkprocessComponent) => {
+        expect(workprocess.getSubGroups).toBeDefined();
+    }));
+
+    it('should have a updateSelectedCategory property', inject([WorkprocessComponent],
+      (workprocess: WorkprocessComponent) => {
+        expect(workprocess.updateSelectedGroup).toBeDefined();
+    }));
+
     it('should be able to inject workprocess service', fakeAsync(inject(
         [MockBackend, WorkprocessService], (backend, workprocessService) => {
           expect(workprocessService).toBeDefined();
