@@ -104,7 +104,7 @@ describe('Workprocess', () => {
     describe('#getSubGroups', () => {
       it('should have a subcategoryMap property', inject([WorkprocessComponent],
         (workprocess: WorkprocessComponent) => {
-          expect(workprocess.subGroupMa).toBeDefined();
+          expect(workprocess.subGroupMap).toBeDefined();
       }));
     });
 

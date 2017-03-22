@@ -22,7 +22,7 @@ export class WorkprocessComponent implements OnInit {
   public bottomName = 'Sub-Group';
   public selectedGroup: String = ' ';
   public groups = 'Groups';
-  public subGroupMa = 'Sth';
+  public subGroupMap = 'Sth';
 
   constructor(
     public route: ActivatedRoute,
