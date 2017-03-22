@@ -21,7 +21,8 @@ export class WorkprocessComponent implements OnInit {
   public topName = 'Group';
   public bottomName = 'Sub-Group';
   public selectedGroup: String = ' ';
-  public groups = [];
+  public groups = 'Groups';
+  public subGroupMa = 'Sth';
 
   constructor(
     public route: ActivatedRoute,
