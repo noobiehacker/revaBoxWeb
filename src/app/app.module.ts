@@ -30,6 +30,7 @@ import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
+//import { WorkprocessComponent } from './workprocess';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -57,6 +58,7 @@ type StoreType = {
     HomeComponent,
     NoContentComponent,
     XLargeDirective
+//    ,WorkprocessComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
