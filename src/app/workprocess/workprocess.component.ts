@@ -9,21 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'workprocess',
-  styles: [`
-  `],
-  template: `
-    <h1>About</h1>
-    <div>
-      For hot module reloading run
-      <pre>npm run start:hmr</pre>
-    </div>
-    <div>
-      <h3>
-        patrick@AngularClass.com
-      </h3>
-    </div>
-    <pre>this.localState = {{ localState | json }}</pre>
-  `
+  templateUrl: './workprocess.component.html'
 })
 
 export class WorkprocessComponent implements OnInit {
