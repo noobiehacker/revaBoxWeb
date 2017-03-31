@@ -4,7 +4,7 @@
         <h3>POD Workprocess</h3>
           <div class="col-sm-4">
             <h2>{{topName}}</h2>
-            <select>
+            <select [(ngModel)]="selectedGroup">
               <option *ngFor="let group of groups" value= {{group}}>
                 {{group}}
               </option>
@@ -18,7 +18,7 @@
           </div>
           <div class="col-sm-4">
             <h2>{{bottomName}}</h2>
-            <select>
+            <select [(ngModel)]="selectedSubGroup">
               <option *ngFor="let group of groups" value= {{group}}>
                 {{group}}
               </option>

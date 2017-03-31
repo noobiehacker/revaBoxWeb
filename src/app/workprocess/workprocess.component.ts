@@ -18,7 +18,8 @@ export class WorkprocessComponent implements OnInit {
 
   public topName = 'Group';
   public bottomName = 'Sub-Group';
-  public selectedGroup: String = ' ';
+  public selectedGroup = ' ';
+  public selectedSubGroup = ' ';
   public groups = ['Finance', 'HR', 'POD'];
   public subGroupMap = 'Sth';
 
@@ -45,10 +46,6 @@ export class WorkprocessComponent implements OnInit {
 
   public getSubGroups(input: String) {
     return null;
-  }
-
-  public updateSelectedGroup(group: String) {
-    this.selectedGroup = group;
   }
 
   private asyncDataWithWebpack() {
