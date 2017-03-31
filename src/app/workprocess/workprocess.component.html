@@ -1,36 +1,35 @@
 <div>
-    <section class="workprocess">
-        <div class="row">
-            <div class="col-sm-2"></div>
+  <section class="workprocess">
+    <div class="row">
+        <h3>POD Workprocess</h3>
+          <div class="col-sm-4">
+            <h2>{{topName}}</h2>
+            <select>
+              <option *ngFor="let group of groups" value= {{group}}>
+                {{group}}
+              </option>
+            </select>
+              <!-- <select ng-model="group" ng-change="updateSelectedGroup(group)">
+                <option ng-repeat="cat in group"
+                          value="{{cat}}">
+                          {{cat}}
+                  </option>
+              </select> -->
+          </div>
+          <div class="col-sm-4">
+            <h2>{{bottomName}}</h2>
+            <select>
+              <option *ngFor="let group of groups" value= {{group}}>
+                {{group}}
+              </option>
+            </select>
+          </div>
 
-            <h3>POD Workprocess</h3>
-
-            <div class="col-sm-4">
-                <h2>{{$ctrl.topName}}</h2>
-                <select ng-model="category" ng-change="$ctrl.updateSelectedCategory(category)">
-          <option ng-repeat="cat in $ctrl.category"
-                  value="{{cat}}">
-                  {{cat}}
-          </option>
-        </select>
-            </div>
-
-            <div class="col-sm-4">
-                <h2>{{$ctrl.bottomName}}</h2>
-                <select ng-model="subcategory">
-          <option ng-repeat="subCat in $ctrl.getSubCategoryDropDown()"
-                value="subCat.value">
-                {{subCat}}
-          </option>
-        </select>
-            </div>
-
-            <div class="center">
-                <button type="button" class="btn btn-primary">Search</button>
-            </div>
+          <!-- <br></br> -->
+          <div class="center">
+            <button type="button" class="btn btn-primary">Search</button>
+          </div>
 
         </div>
-
     </section>
-
 </div>

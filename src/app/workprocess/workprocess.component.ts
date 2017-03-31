@@ -19,7 +19,7 @@ export class WorkprocessComponent implements OnInit {
   public topName = 'Group';
   public bottomName = 'Sub-Group';
   public selectedGroup: String = ' ';
-  public groups = 'Groups';
+  public groups = ['Finance', 'HR', 'POD'];
   public subGroupMap = 'Sth';
 
   constructor(
