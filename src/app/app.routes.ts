@@ -9,8 +9,8 @@ export const ROUTES: Routes = [
   { path: '',      component: HomeComponent },
   { path: 'home',  component: HomeComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'workprocess', component: WorkprocessComponent},
   { path: 'detail', loadChildren: './+detail#DetailModule'},
   { path: 'barrel', loadChildren: './+barrel#BarrelModule'},
   { path: '**',    component: NoContentComponent },
-  { path: 'workprocess', component: WorkprocessComponent},
 ];
