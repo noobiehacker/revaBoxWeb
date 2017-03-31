@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
-//import { WorkprocessComponent } from './workprocess';
+import { WorkprocessComponent } from './workprocess';
 import { DataResolver } from './app.resolver';
 
 export const ROUTES: Routes = [
@@ -12,5 +12,5 @@ export const ROUTES: Routes = [
   { path: 'detail', loadChildren: './+detail#DetailModule'},
   { path: 'barrel', loadChildren: './+barrel#BarrelModule'},
   { path: '**',    component: NoContentComponent },
-  //{ path: 'workprocess', component: WorkprocessComponent},
+  { path: 'workprocess', component: WorkprocessComponent},
 ];
