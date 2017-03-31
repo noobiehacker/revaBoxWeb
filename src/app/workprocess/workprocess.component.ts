@@ -21,7 +21,7 @@ export class WorkprocessComponent implements OnInit {
   public selectedGroup = ' ';
   public selectedSubGroup = ' ';
   public groups = ['Finance', 'HR', 'POD'];
-  public subGroupMap = 'Sth';
+  public subGroups = ['Ath' , 'Bth' , 'Cth'];
 
   constructor(
     public route: ActivatedRoute,
@@ -61,6 +61,16 @@ export class WorkprocessComponent implements OnInit {
         });
 
     });
+  }
+
+  private updateSubGroup(event) {
+    if(event == 'Finance'){
+      this.subGroups = ['Finance1' , 'Finance2' , 'Finance3']
+    } else if (event == 'HR'){
+      this.subGroups = ['HR1' , 'HR2' , 'HR3']
+    } else if (event == 'POD'){
+      this.subGroups = ['POD1' , 'POD2' , 'POD3']
+    }
   }
 
 }

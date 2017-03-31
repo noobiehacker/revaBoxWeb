@@ -1,31 +1,27 @@
 <div>
   <section class="workprocess">
     <div class="row">
-        <h3>POD Workprocess</h3>
+        <h2>Group Workprocess</h2>
+
           <div class="col-sm-4">
-            <h2>{{topName}}</h2>
-            <select [(ngModel)]="selectedGroup">
+            <h3>{{topName}}</h3>
+            <select [(ngModel)]="selectedGroup" (ngModelChange)="updateSubGroup($event)">
               <option *ngFor="let group of groups" value= {{group}}>
                 {{group}}
               </option>
             </select>
-              <!-- <select ng-model="group" ng-change="updateSelectedGroup(group)">
-                <option ng-repeat="cat in group"
-                          value="{{cat}}">
-                          {{cat}}
-                  </option>
-              </select> -->
           </div>
           <div class="col-sm-4">
-            <h2>{{bottomName}}</h2>
+            <h3>{{bottomName}}</h3>
             <select [(ngModel)]="selectedSubGroup">
-              <option *ngFor="let group of groups" value= {{group}}>
+              <option *ngFor="let group of subGroups" value= {{group}}>
                 {{group}}
               </option>
             </select>
           </div>
 
           <!-- <br></br> -->
+          <p></p>
           <div class="center">
             <button type="button" class="btn btn-primary">Search</button>
           </div>
