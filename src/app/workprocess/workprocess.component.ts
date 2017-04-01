@@ -24,9 +24,7 @@ export class WorkprocessComponent implements OnInit {
   public selectedSubGroup = ' ';
   public groups = ['Finance', 'HR', 'POD'];
   public subGroups = ['Ath' , 'Bth' , 'Cth'];
-
-  public getGroupsResult: Observable<Response>;
-  public getSubgroupsResult: Observable<Response>;
+  public subGroupsJsonResult: JSON;
 
   constructor(
     public route: ActivatedRoute,
@@ -80,10 +78,21 @@ export class WorkprocessComponent implements OnInit {
   }
 
   private callNetwork() {
-    this.getGroupsResult = this.workprocessService.getGroups();
-    this.getSubgroupsResult = this.workprocessService.getSubGroups();
-    console.log(this.getGroupsResult);
-    console.log(this.getSubgroupsResult);
+    this.workprocessService.getGroups().subscribe((res) => {
+      this.setUpGroupsArray(res);
+    });
+    this.workprocessService.getSubGroups().subscribe((res) => {
+      this.subGroupsJsonResult = res.json();
+      this.setUpSubGroupsArray(this.subGroupsJsonResult);
+    });
+  }
+
+  private setUpGroupsArray(respons: Response) {
+    console.log('To Be Implemented');
+  }
+
+  private setUpSubGroupsArray(response: JSON) {
+    console.log('To Be Implemented');
   }
 
 }

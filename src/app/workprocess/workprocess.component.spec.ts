@@ -151,4 +151,19 @@ describe('Workprocess', () => {
 
     })));
 
+    it('should set the right value for results when callNetwork is called',
+      fakeAsync(inject([MockBackend, WorkprocessService],
+        (backend, workprocessService) => {
+
+          backend.connections.subscribe(
+            (c: MockConnection) => {
+                c.mockRespond(new Response(new ResponseOptions({ body: subGroupExpectedResult})));
+            });
+
+          workprocessService.getSubGroups().subscribe((res) => {
+            expect(res.json()).toEqual(subGroupExpectedResult);
+          });
+
+    })));
+
 });
