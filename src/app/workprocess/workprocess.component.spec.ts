@@ -31,12 +31,16 @@ const groupExpectedResult = {
 const subGroupExpectedResult = {
       subCategory : [
         {
-          id: '17999076284',
-          name: 'Invoices'
-        },
-        {
-          id: '18008543219',
-          name: 'POD'
+          finance: [
+            {
+              id: '17999076284',
+              name: 'Invoices'
+            },
+            {
+              id: '18008543219',
+              name: 'POD'
+            }
+          ],
         }
       ]
 };
@@ -127,6 +131,21 @@ describe('Workprocess Component', () => {
           workprocess.setUpGroupsArray(result.json());
           expect(workprocess.groups.length).toEqual(3);
       }));
+
+    });
+
+    describe('#setUpSubGroupsArray', () => {
+
+      it('should set up the subGroups array with the correct value from the JSON',
+        inject([WorkprocessComponent],
+        (workprocess: WorkprocessComponent) => {
+          // expect(workprocess.subGroups.length).toEqual(0);
+          let options = new ResponseOptions({ body: subGroupExpectedResult});
+          let result = new Response(options);
+          workprocess.setUpSubGroupsArray(result.json());
+          // expect(workprocess.subGroups.length).toEqual(2);
+      }));
+
     });
 
     describe('#workprocess service', () => {

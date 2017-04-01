@@ -23,7 +23,7 @@ export class WorkprocessComponent implements OnInit {
   public selectedGroup = ' ';
   public selectedSubGroup = ' ';
   public groups = [];
-  public subGroups = ['Ath' , 'Bth' , 'Cth'];
+  public subGroups = [];
   public subGroupsJsonResult: JSON;
 
   constructor(
@@ -71,7 +71,6 @@ export class WorkprocessComponent implements OnInit {
 
   public callSubGroupsNetwork() {
     this.workprocessService.getSubGroups().subscribe((res) => {
-      console.log(res.json());
       this.subGroupsJsonResult = res.json();
     });
   }
@@ -79,6 +78,14 @@ export class WorkprocessComponent implements OnInit {
   public setUpGroupsArray(response: JSON) {
     for (let entry of response['category']) {
       this.groups.push(entry.name);
+    }
+  }
+
+  public setUpSubGroupsArray(response: JSON) {
+    let subCat = response['subCategory'];
+    let array = subCat['finance'];
+    for (let entry of array) {
+      this.subGroups.push(entry.name);
     }
   }
 
