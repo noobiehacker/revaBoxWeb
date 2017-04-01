@@ -45,7 +45,8 @@ export class WorkprocessComponent implements OnInit {
     // console.log('mockData', mockData);
     // if you're working with mock data you can also use http.get('assets/mock-data/mock-data.json')
     this.asyncDataWithWebpack();
-    this.callNetwork();
+    this.callGroupsNetwork();
+    this.callSubGroupsNetwork();
   }
 
   public getSubGroups(input: String) {
@@ -62,6 +63,22 @@ export class WorkprocessComponent implements OnInit {
     }
   }
 
+  public callGroupsNetwork() {
+    this.workprocessService.getGroups().subscribe((res) => {
+      this.setUpGroupsArray(res.json());
+    });
+  }
+
+  public callSubGroupsNetwork() {
+    this.workprocessService.getSubGroups().subscribe((res) => {
+      console.log(res.json());
+      this.subGroupsJsonResult = res.json();
+    });
+  }
+
+  public setUpGroupsArray(response: JSON) {
+    console.log('Implement Me');
+  }
   private asyncDataWithWebpack() {
     // you can also async load mock data with 'es6-promise-loader'
     // you would do this if you don't want the mock-data bundled
@@ -75,24 +92,6 @@ export class WorkprocessComponent implements OnInit {
         });
 
     });
-  }
-
-  private callNetwork() {
-    this.workprocessService.getGroups().subscribe((res) => {
-      this.setUpGroupsArray(res);
-    });
-    this.workprocessService.getSubGroups().subscribe((res) => {
-      this.subGroupsJsonResult = res.json();
-      this.setUpSubGroupsArray(this.subGroupsJsonResult);
-    });
-  }
-
-  private setUpGroupsArray(respons: Response) {
-    console.log('To Be Implemented');
-  }
-
-  private setUpSubGroupsArray(response: JSON) {
-    console.log('To Be Implemented');
   }
 
 }

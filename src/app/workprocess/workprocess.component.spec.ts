@@ -151,19 +151,27 @@ describe('Workprocess', () => {
 
     })));
 
-    it('should set the right value for results when callNetwork is called',
-      fakeAsync(inject([MockBackend, WorkprocessService],
-        (backend, workprocessService) => {
-
+    it('should set up subGroupsJsonResult when callGroupsNetwork is called',
+      fakeAsync(inject([MockBackend, WorkprocessService, WorkprocessComponent],
+        (backend, workprocessService, workprocess: WorkprocessComponent) => {
           backend.connections.subscribe(
             (c: MockConnection) => {
                 c.mockRespond(new Response(new ResponseOptions({ body: subGroupExpectedResult})));
-            });
+              });
+          workprocess.callSubGroupsNetwork();
+          expect(workprocess.subGroupsJsonResult).toBeDefined();
+    })));
 
-          workprocessService.getSubGroups().subscribe((res) => {
-            expect(res.json()).toEqual(subGroupExpectedResult);
-          });
-
+    it('should call setUpGroupsArray when callGroupsNetwork is called',
+      fakeAsync(inject([MockBackend, WorkprocessService, WorkprocessComponent],
+        (backend, workprocessService, workprocess: WorkprocessComponent) => {
+          backend.connections.subscribe(
+            (c: MockConnection) => {
+                c.mockRespond(new Response(new ResponseOptions({ body: groupExpectedResult})));
+              });
+          spyOn(workprocess, 'setUpGroupsArray');
+          workprocess.callGroupsNetwork();
+          expect(workprocess.setUpGroupsArray).toHaveBeenCalled();
     })));
 
 });
