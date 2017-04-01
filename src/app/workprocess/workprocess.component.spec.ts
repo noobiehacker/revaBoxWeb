@@ -85,6 +85,11 @@ describe('Workprocess', () => {
         expect(workprocess.bottomName).toBeDefined();
     }));
 
+    it('should have a selectedSubGroup property', inject([WorkprocessComponent],
+      (workprocess: WorkprocessComponent) => {
+        expect(workprocess.selectedSubGroup).toBeDefined();
+    }));
+
     describe('#selectedGroup', () => {
 
       it('should have a selectedGroup property', inject([WorkprocessComponent],
@@ -92,19 +97,12 @@ describe('Workprocess', () => {
           expect(workprocess.selectedGroup).toBeDefined();
       }));
 
-      it('should update the property when updateSelectedGroup is called',
+      it('should update the subGroups when updateSelectedGroup is called',
         inject([WorkprocessComponent], (workprocess: WorkprocessComponent) => {
           let expected: String = 'Updated Value';
-          workprocess.updateSelectedGroup(expected);
+          workprocess.updateSubGroup(expected);
           let result = workprocess.selectedGroup;
           expect(result).toEqual(expected);
-      }));
-    });
-
-    describe('#getSubGroups', () => {
-      it('should have a subcategoryMap property', inject([WorkprocessComponent],
-        (workprocess: WorkprocessComponent) => {
-          expect(workprocess.subGroupMap).toBeDefined();
       }));
     });
 
@@ -116,11 +114,6 @@ describe('Workprocess', () => {
     it('should have a getSubGroups property', inject([WorkprocessComponent],
       (workprocess: WorkprocessComponent) => {
         expect(workprocess.getSubGroups).toBeDefined();
-    }));
-
-    it('should have a updateSelectedCategory property', inject([WorkprocessComponent],
-      (workprocess: WorkprocessComponent) => {
-        expect(workprocess.updateSelectedGroup).toBeDefined();
     }));
 
     it('should be able to inject workprocess service', fakeAsync(inject(

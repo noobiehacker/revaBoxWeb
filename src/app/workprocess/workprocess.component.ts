@@ -6,6 +6,8 @@ import {
   WorkprocessService
 } from './workprocess.service';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/observable';
+import { Http, Response } from '@angular/http';
 
 @Component({
   selector: 'workprocess',
@@ -22,6 +24,9 @@ export class WorkprocessComponent implements OnInit {
   public selectedSubGroup = ' ';
   public groups = ['Finance', 'HR', 'POD'];
   public subGroups = ['Ath' , 'Bth' , 'Cth'];
+
+  public getGroupsResult : Observable<Response>;
+  public getSubgroupsResult : Observable<Response>;
 
   constructor(
     public route: ActivatedRoute,
@@ -42,6 +47,7 @@ export class WorkprocessComponent implements OnInit {
     // console.log('mockData', mockData);
     // if you're working with mock data you can also use http.get('assets/mock-data/mock-data.json')
     this.asyncDataWithWebpack();
+    this.callNetwork();
   }
 
   public getSubGroups(input: String) {
@@ -63,14 +69,21 @@ export class WorkprocessComponent implements OnInit {
     });
   }
 
-  private updateSubGroup(event) {
+  public updateSubGroup(event) {
     if(event == 'Finance'){
-      this.subGroups = ['Finance1' , 'Finance2' , 'Finance3']
+      this.subGroups = ['Finance1' , 'Finance2' , 'Finance3'];
     } else if (event == 'HR'){
-      this.subGroups = ['HR1' , 'HR2' , 'HR3']
+      this.subGroups = ['HR1' , 'HR2' , 'HR3'];
     } else if (event == 'POD'){
-      this.subGroups = ['POD1' , 'POD2' , 'POD3']
+      this.subGroups = ['POD1' , 'POD2' , 'POD3'];
     }
+  }
+
+  private callNetwork(){
+    this.getGroupsResult = this.workprocessService.getGroups();
+    this.getSubgroupsResult = this.workprocessService.getSubGroups();
+    console.log(this.getGroupsResult);
+    console.log(this.getSubgroupsResult);
   }
 
 }
