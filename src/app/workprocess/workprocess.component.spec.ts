@@ -116,6 +116,19 @@ describe('Workprocess Component', () => {
         expect(workprocess.getSubGroups).toBeDefined();
     }));
 
+    describe('#setUpGroupsArray', () => {
+
+      it('should set up the groups array with the correct value from the JSON',
+        inject([WorkprocessComponent],
+        (workprocess: WorkprocessComponent) => {
+          expect(workprocess.groups.length).toEqual(0);
+          let options = new ResponseOptions({ body: groupExpectedResult});
+          let result = new Response(options);
+          workprocess.setUpGroupsArray(result.json());
+          expect(workprocess.groups.length).toEqual(3);
+      }));
+    });
+
     describe('#workprocess service', () => {
 
       it('should be able to inject workprocess service', fakeAsync(inject(

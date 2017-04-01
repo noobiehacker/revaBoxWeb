@@ -22,7 +22,7 @@ export class WorkprocessComponent implements OnInit {
   public bottomName = 'Sub-Group';
   public selectedGroup = ' ';
   public selectedSubGroup = ' ';
-  public groups = ['Finance', 'HR', 'POD'];
+  public groups = [];
   public subGroups = ['Ath' , 'Bth' , 'Cth'];
   public subGroupsJsonResult: JSON;
 
@@ -77,8 +77,11 @@ export class WorkprocessComponent implements OnInit {
   }
 
   public setUpGroupsArray(response: JSON) {
-    console.log('Implement Me');
+    for (let entry of response['category']) {
+      this.groups.push(entry.name);
+    }
   }
+
   private asyncDataWithWebpack() {
     // you can also async load mock data with 'es6-promise-loader'
     // you would do this if you don't want the mock-data bundled
