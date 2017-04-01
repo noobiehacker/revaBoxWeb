@@ -41,7 +41,7 @@ const subGroupExpectedResult = {
       ]
 };
 
-describe('Workprocess', () => {
+describe('Workprocess Component', () => {
     // provide our implementations or mocks to the dependency injector
     beforeEach(() => TestBed.configureTestingModule({
         providers: [
@@ -116,62 +116,70 @@ describe('Workprocess', () => {
         expect(workprocess.getSubGroups).toBeDefined();
     }));
 
-    it('should be able to inject workprocess service', fakeAsync(inject(
-        [MockBackend, WorkprocessService], (backend, workprocessService) => {
-          expect(workprocessService).toBeDefined();
-    })));
+    describe('#workprocess service', () => {
 
-    it('should return groupExpectedResult when getGroups is called',
-      fakeAsync(inject([MockBackend, WorkprocessService],
-        (backend, workprocessService) => {
+      it('should be able to inject workprocess service', fakeAsync(inject(
+          [MockBackend, WorkprocessService], (backend, workprocessService) => {
+            expect(workprocessService).toBeDefined();
+      })));
 
-          backend.connections.subscribe(
-            (c: MockConnection) => {
-                c.mockRespond(new Response(new ResponseOptions({ body: groupExpectedResult})));
+      it('should return groupExpectedResult when getGroups is called',
+        fakeAsync(inject([MockBackend, WorkprocessService],
+          (backend, workprocessService) => {
+
+            backend.connections.subscribe(
+              (c: MockConnection) => {
+                  c.mockRespond(new Response(new ResponseOptions({ body: groupExpectedResult})));
+              });
+
+            workprocessService.getGroups().subscribe((res) => {
+              expect(res.json()).toEqual(groupExpectedResult);
             });
 
-          workprocessService.getGroups().subscribe((res) => {
-            expect(res.json()).toEqual(groupExpectedResult);
-          });
+      })));
 
-    })));
+      it('should return subGroupExpectedResult when getSubGroups is called',
+        fakeAsync(inject([MockBackend, WorkprocessService],
+          (backend, workprocessService) => {
 
-    it('should return subGroupExpectedResult when getSubGroups is called',
-      fakeAsync(inject([MockBackend, WorkprocessService],
-        (backend, workprocessService) => {
+            backend.connections.subscribe(
+              (c: MockConnection) => {
+                  c.mockRespond(new Response(new ResponseOptions({ body: subGroupExpectedResult})));
+              });
 
-          backend.connections.subscribe(
-            (c: MockConnection) => {
-                c.mockRespond(new Response(new ResponseOptions({ body: subGroupExpectedResult})));
+            workprocessService.getSubGroups().subscribe((res) => {
+              expect(res.json()).toEqual(subGroupExpectedResult);
             });
 
-          workprocessService.getSubGroups().subscribe((res) => {
-            expect(res.json()).toEqual(subGroupExpectedResult);
-          });
+      })));
 
-    })));
+    });
 
-    it('should set up subGroupsJsonResult when callGroupsNetwork is called',
-      fakeAsync(inject([MockBackend, WorkprocessService, WorkprocessComponent],
-        (backend, workprocessService, workprocess: WorkprocessComponent) => {
-          backend.connections.subscribe(
-            (c: MockConnection) => {
-                c.mockRespond(new Response(new ResponseOptions({ body: subGroupExpectedResult})));
-              });
-          workprocess.callSubGroupsNetwork();
-          expect(workprocess.subGroupsJsonResult).toBeDefined();
-    })));
+    describe('#workprocess network call functions', () => {
 
-    it('should call setUpGroupsArray when callGroupsNetwork is called',
-      fakeAsync(inject([MockBackend, WorkprocessService, WorkprocessComponent],
-        (backend, workprocessService, workprocess: WorkprocessComponent) => {
-          backend.connections.subscribe(
-            (c: MockConnection) => {
-                c.mockRespond(new Response(new ResponseOptions({ body: groupExpectedResult})));
-              });
-          spyOn(workprocess, 'setUpGroupsArray');
-          workprocess.callGroupsNetwork();
-          expect(workprocess.setUpGroupsArray).toHaveBeenCalled();
-    })));
+      it('should set up subGroupsJsonResult when callSubGroupsNetwork is called',
+        fakeAsync(inject([MockBackend, WorkprocessService, WorkprocessComponent],
+          (backend, workprocessService, workprocess: WorkprocessComponent) => {
+            backend.connections.subscribe(
+              (c: MockConnection) => {
+                  c.mockRespond(new Response(new ResponseOptions({ body: subGroupExpectedResult})));
+                });
+            workprocess.callSubGroupsNetwork();
+            expect(workprocess.subGroupsJsonResult).toBeDefined();
+      })));
+
+      it('should call setUpGroupsArray when callGroupsNetwork is called',
+        fakeAsync(inject([MockBackend, WorkprocessService, WorkprocessComponent],
+          (backend, workprocessService, workprocess: WorkprocessComponent) => {
+            backend.connections.subscribe(
+              (c: MockConnection) => {
+                  c.mockRespond(new Response(new ResponseOptions({ body: groupExpectedResult})));
+                });
+            spyOn(workprocess, 'setUpGroupsArray');
+            workprocess.callGroupsNetwork();
+            expect(workprocess.setUpGroupsArray).toHaveBeenCalled();
+      })));
+
+    });
 
 });
