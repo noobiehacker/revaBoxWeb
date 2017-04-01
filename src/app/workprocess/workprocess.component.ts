@@ -25,8 +25,8 @@ export class WorkprocessComponent implements OnInit {
   public groups = ['Finance', 'HR', 'POD'];
   public subGroups = ['Ath' , 'Bth' , 'Cth'];
 
-  public getGroupsResult : Observable<Response>;
-  public getSubgroupsResult : Observable<Response>;
+  public getGroupsResult: Observable<Response>;
+  public getSubgroupsResult: Observable<Response>;
 
   constructor(
     public route: ActivatedRoute,
@@ -54,6 +54,16 @@ export class WorkprocessComponent implements OnInit {
     return null;
   }
 
+  public updateSubGroup(event) {
+    if (event === 'Finance') {
+      this.subGroups = ['Finance1' , 'Finance2' , 'Finance3'];
+    } else if (event === 'HR') {
+      this.subGroups = ['HR1' , 'HR2' , 'HR3'];
+    } else if (event === 'POD') {
+      this.subGroups = ['POD1' , 'POD2' , 'POD3'];
+    }
+  }
+
   private asyncDataWithWebpack() {
     // you can also async load mock data with 'es6-promise-loader'
     // you would do this if you don't want the mock-data bundled
@@ -69,17 +79,7 @@ export class WorkprocessComponent implements OnInit {
     });
   }
 
-  public updateSubGroup(event) {
-    if(event == 'Finance'){
-      this.subGroups = ['Finance1' , 'Finance2' , 'Finance3'];
-    } else if (event == 'HR'){
-      this.subGroups = ['HR1' , 'HR2' , 'HR3'];
-    } else if (event == 'POD'){
-      this.subGroups = ['POD1' , 'POD2' , 'POD3'];
-    }
-  }
-
-  private callNetwork(){
+  private callNetwork() {
     this.getGroupsResult = this.workprocessService.getGroups();
     this.getSubgroupsResult = this.workprocessService.getSubGroups();
     console.log(this.getGroupsResult);

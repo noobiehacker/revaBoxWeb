@@ -99,9 +99,9 @@ describe('Workprocess', () => {
 
       it('should update the subGroups when updateSelectedGroup is called',
         inject([WorkprocessComponent], (workprocess: WorkprocessComponent) => {
-          let expected: String = 'Updated Value';
-          workprocess.updateSubGroup(expected);
-          let result = workprocess.selectedGroup;
+          let expected = ['Finance1' , 'Finance2' , 'Finance3'];
+          workprocess.updateSubGroup('Finance');
+          let result = workprocess.subGroups;
           expect(result).toEqual(expected);
       }));
     });
